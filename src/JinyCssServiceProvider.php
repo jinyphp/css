@@ -38,8 +38,7 @@ class JinyCssServiceProvider extends ServiceProvider
         $this->block();
         $this->images();
 
-
-
+        $this->display();
 
     }
 
@@ -50,6 +49,13 @@ class JinyCssServiceProvider extends ServiceProvider
 
 
         });
+
+    }
+
+    protected function display()
+    {
+        Blade::component($this->package.'::components.'.'display.table', 'display-table');
+        Blade::component($this->package.'::components.'.'display.table-cell', 'display-table-cell');
 
     }
 
@@ -107,6 +113,9 @@ class JinyCssServiceProvider extends ServiceProvider
         // Blade::component('jinyui::components.'.'flex.divide', 'divide');
         // Blade::component('jinyui::components.'.'flex.divide-y', 'divide-y');
         // Blade::component('jinyui::components.'.'flex.divide-item', 'divide-item');
+
+        // ## grid
+        Blade::component($this->package.'::components.'.'flex.grid', 'grid');
     }
 
     protected function table($type="tailwind")
